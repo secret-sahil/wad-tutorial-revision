@@ -7,13 +7,15 @@ a{
 .card{
     margin-top: 10px;
     margin-left: 20%;
+    margin-bottom: 10px;
     margin-right: 20%;
-    background-color: var(--theme);
+    background-color: black;
     color: white;
 }
 
 body{
     background-color: var(--theme);
+    color: white;
 }
 
 .footer{
@@ -22,4 +24,20 @@ body{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.slider{
+    padding: 10px 10px 10px 10px;
+}
+
+.slider img{
+    border-radius: 30% 0px 30% 0px;
+}
+.slider h5, .slider p{
+    color: white;
+}
+.myform{
+    padding: 10px 30% 10px 30%;
+}
+.formhead{
+    font-size: 25px;
 }

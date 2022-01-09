@@ -19,7 +19,7 @@
     <div class="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="https://www.pnglib.com/wp-content/uploads/2021/02/letter-w-png-stock-images_6020816a6f03b.png"
                         alt="logo" width="30" height="24">
                 </a>
@@ -31,13 +31,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutus.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
+                            <a class="nav-link" href="contactus.html">Contact Us</a>
                         </li>
                     </ul>
                     <button class="btn btn-outline-success" type="submit">Login/Signup</button>
@@ -48,18 +48,18 @@
     <!-- Nav Bar ended -->
     <!-- Main start -->
     <div class="main">
-        <img class="img-fluid" src="./assets/img/featued-image.jpg" alt="featured image">
-        <div class="card">
-            <div class="card-header">
-                Quote
+        <div class="myform">
+            <p class="formhead">YOUR QUERY:</p>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name*">
             </div>
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>For the things we have to learn before we can do them, we learn by doing them.</p>
-                    <footer class="blockquote-footer">Someone famous no <cite title="Source Title">Google</cite>
-                    </footer>
-                </blockquote>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email*">
             </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter Message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
         </div>
     </div>
     <!-- Footer start -->
