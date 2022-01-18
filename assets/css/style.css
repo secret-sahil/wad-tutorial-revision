@@ -59,3 +59,20 @@ body{
 .btn-outline-primary{
     margin-left: 3px;
 }
+table th, table td{
+    color: white;
+    text-align: center;
+}
+.cftable p{
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.cftable{
+    padding: 10px 10% 10px 10%;
+}
+
+.cftable .btn-danger{
+    margin-left: 3px;
+}

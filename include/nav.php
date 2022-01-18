@@ -15,10 +15,13 @@
                             <a class="nav-link active" aria-current="page" href="./">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aboutus.php">About Us</a>
+                            <a class="nav-link active" href="aboutus.php">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contactus.php">Contact Us</a>
+                            <a class="nav-link active" href="contactus.php">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="viewcform.php">View Contact Form</a>
                         </li>
                     </ul>
                     <button class="btn btn-outline-success" type="submit">Login</button>
