@@ -6,6 +6,9 @@
                 window.location.href="viewcform.php?delete=" + id;
             }
         }
+        function edit(id) {
+            window.location.href="editcform.php?edit=" + id;
+        }
     </script>
     <!-- nav bar start -->
     <?php include 'include/nav.php' ?>
@@ -30,7 +33,7 @@
                         <td><?php echo $data['name']; ?></td>
                         <td><?php echo $data['email']; ?></td>
                         <td><?php echo $data['message']; ?></td>
-                        <td><button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                        <td><button onclick=edit(<?php echo $data['id']; ?>) class="btn btn-primary"><i class="fas fa-edit"></i></button>
                         <button onclick=dele(<?php echo $data['id']; ?>) class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </tr>
                 <?php } ?>
