@@ -24,7 +24,7 @@
                             <a class="nav-link active" href="viewcform.php">View Contact Form</a>
                         </li>
                     </ul>
-                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                    <a href="signup.php"><button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-in-alt"></i></button></a>
                     <button class="btn btn-outline-primary" type="submit"><i class="fas fa-user-plus"></i></button>
                 </div>
             </div>
