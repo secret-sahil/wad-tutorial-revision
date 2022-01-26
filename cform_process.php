@@ -8,11 +8,11 @@ if (empty($name) or empty($email) or empty($msg) ) {
     header("location:contactus.php?error=true");
 }
 else {
-    $query= $db->prepare('INSERT INTO cform (name, email, message) VALUES (:name, :email, :message)');
+    $query= $db->prepare('INSERT INTO cform (name, email, message) VALUES (?, ?, ?)');
     $query->execute(array(
-        ':name'=>$name,
-        ':email'=>$email,
-        ':message'=>$msg
+        $name,
+        $email,
+        $msg
     ));
     header("location:contactus.php?sucess=true");
 }

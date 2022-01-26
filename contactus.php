@@ -11,10 +11,16 @@ include "./include/header.php";
             <form action="cform_process.php" method="get">
                 <p class="formhead">YOUR QUERY:</p>
                 <?php if (isset($_GET['sucess'])) { ?>
-                    <p>Submitted Successfully!</p>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Submitted Sucessfully!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php } ?>
                 <?php if (isset($_GET['error'])) { ?>
-                    <p class="error">All fields are required!</p>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        All fields are required!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php } ?>
                 <div class="mb-3">
                     <input type="text" class="form-control" name="name" placeholder="Name*">
