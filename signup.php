@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php  include "include/nav.php"; ?>
     <div class="main">
         <div class="myform">
+        <p>Register Now</p>
             <form action="signup.php" method="post">
                 <?php
                             for ($i=0; $i < sizeof($msg); $i++) {
@@ -78,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label class="input-group-text" for="inputGroupSelect01">Confirm Password</label>
                     <input type="password" name='cpwd' class="form-control">
                 </div>
+                <p class="mb-3">Already registred? <a href="signin.php">Login</a></p>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

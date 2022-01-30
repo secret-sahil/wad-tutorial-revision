@@ -19,13 +19,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="contactus.php">Contact Us</a>
+                            
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="viewcform.php">View Contact Form</a>
                         </li>
                     </ul>
-                    <a href="signup.php"><button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-in-alt"></i></button></a>
-                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-user-plus"></i></button>
+                    <a href="signup.php"><button class="btn btn-outline-primary" type="submit"><i class="fas fa-user-plus"></i></button></a>
+                    <a href="signin.php"><button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-in-alt"></i></button></a>
+                    <a href="logout.php"><button class="btn btn-outline-danger" type="submit"><i class="fas fa-sign-out-alt"></i></button></a>
                 </div>
             </div>
         </nav>
