@@ -1,5 +1,6 @@
 <?php
-include "./include/header.php"; 
+include "./include/header.php";
+session_start();
 ?>
 <body>
     <!-- Navigation Bar start from here -->

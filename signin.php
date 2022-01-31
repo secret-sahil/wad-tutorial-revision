@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location:viewcform.php');
+}
 include "include/header.php";
 $msg=new ArrayObject(array());
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,9 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['email'],
         $_POST['pwd']
     ));
-    $data=$query->fetchall();
+    $data=$query->fetch();
     $count=sizeof($data);
     if ($count>0) {
+        
+        $_SESSION['username']=$data['name'];
         header('location:viewcform.php');
     }
     else {

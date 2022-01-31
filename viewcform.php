@@ -1,4 +1,9 @@
-<?php include 'include/header.php' ?>
+<?php 
+session_start();
+if (empty($_SESSION['username'])) {
+    header('location:signin.php');
+}
+include 'include/header.php' ?>
 <body>
 <script>
     function del(id) {
@@ -16,6 +21,7 @@
     <!-- main start -->
     <div class="main">
         <div class="cftable">
+            <h3><?php echo $_SESSION['username']; ?></h3>
             <p>All Forms</p>
             <?php if (isset($_GET['sucess'])) { ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

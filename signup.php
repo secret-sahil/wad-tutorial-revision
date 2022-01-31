@@ -1,5 +1,9 @@
 <?php 
 include "include/header.php";
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location:viewcform.php');
+}
 ?>
 <?php
 $msg= new ArrayObject(array());
