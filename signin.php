@@ -10,13 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query=$db->prepare('SELECT * from users where email=? and password=?');
     $query->execute(array(
         $_POST['email'],
-        $_POST['pwd']
+        md5($_POST['pwd'])
     ));
-    $data=$query->fetch();
+    $data=$query->fetchall();
     $count=sizeof($data);
     if ($count>0) {
         
-        $_SESSION['username']=$data['name'];
+        $_SESSION['username']=$data[0][1];
         header('location:viewcform.php');
     }
     else {

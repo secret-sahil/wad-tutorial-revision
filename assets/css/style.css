@@ -70,6 +70,12 @@ table th, table td{
 }
 .cftable{
     padding: 10px 10% 10px 10%;
+    text-align: center;
+}
+.cftable span{
+    font-size: 30px;
+    color: red;
+    text-align: center;
 }
 
 .cftable .btn-danger{

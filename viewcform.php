@@ -21,7 +21,7 @@ include 'include/header.php' ?>
     <!-- main start -->
     <div class="main">
         <div class="cftable">
-            <h3><?php echo $_SESSION['username']; ?></h3>
+            <span><?php echo 'Welcome '.$_SESSION['username'].'!'; ?></span>
             <p>All Forms</p>
             <?php if (isset($_GET['sucess'])) { ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

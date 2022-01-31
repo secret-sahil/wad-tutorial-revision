@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $gender,
             $dob,
             $mail,
-            $pwd
+            md5($pwd)
         ));
-        $msg->append('Registered Sucessfully! <a href="login.php">Login</a>');
+        $msg->append('Registered Sucessfully! <a href="signin.php">Login</a>');
     }
 } ?>
 	<body>
