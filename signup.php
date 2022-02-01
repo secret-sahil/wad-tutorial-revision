@@ -15,8 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cpwd=$_POST['cpwd'];
     $dob=$_POST['dob'];
     
+    require_once "include/db.php";
+    $query=$db->prepare('SELECT * from users where email=?');
+    $query->execute(array(
+        $mail
+    ));
+    $data= $query->fetchall();
+    $size=sizeof($data);
+    if ($size>0) {
+        $msg->append('Email Already Registred');
+    }
 
-    if (empty($name) or empty($mail) or empty($gender) or empty($pwd) or empty($cpwd) or empty($dob)) {
+    elseif (empty($name) or empty($mail) or empty($gender) or empty($pwd) or empty($cpwd) or empty($dob)) {
         $msg->append('All fields are required');
     }
     elseif ($pwd != $cpwd) {
@@ -43,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form action="signup.php" method="post">
                 <?php
                             for ($i=0; $i < sizeof($msg); $i++) {
-                                if ($msg[$i]=='Registered Sucessfully! <a href="login.php">Login</a>') { ?>
+                                if ($msg[$i]=='Registered Sucessfully! <a href="signin.php">Login</a>') { ?>
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <?php echo $msg[$i]; ?>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
