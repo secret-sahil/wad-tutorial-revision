@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data=$query->fetchall();
     $count=sizeof($data);
     if ($count>0) {
-        
-        $_SESSION['username']=$data[0][1];
+        $_SESSION['email']=$data[0]['email'];
+        $_SESSION['username']=$data[0]['name'];
         header('location:viewcform.php');
     }
     else {

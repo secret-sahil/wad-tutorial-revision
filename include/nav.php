@@ -27,6 +27,12 @@
                                 <a class="nav-link active" href="viewcform.php">View Contact Form</a>
                             </li>
                         <?php }?>
+                        <?php 
+                        if (isset($_SESSION['username'])) {?>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="changepwd.php">Change Password</a>
+                            </li>
+                        <?php }?>
                     </ul>
                     <?php 
                     if (empty($_SESSION['username'])) {?>
