@@ -1,4 +1,8 @@
 <?php
+session_start();
+if ($_SESSION['email']!='admin@mrsahil.in') {
+    header('location:viewcform.php');
+}
 include "./include/header.php"; 
 include "./include/db.php";
 $query=$db->prepare('SELECT * from cform where id=?');

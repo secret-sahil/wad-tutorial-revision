@@ -46,12 +46,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form action="changepwd.php" method="post">
                 <p>Change Password</p>
                 <?php 
-                for ($i=0; $i < sizeof($msg); $i++) {?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                for ($i=0; $i < sizeof($msg); $i++) {
+                    if ($msg[$i]=='Password Changed Sucessfully') { ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <?php echo $msg[$i]; ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                <?php }?>
+                        </div>
+                   <?php }
+                    else { ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?php echo $msg[$i]; ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                   <?php }
+                 }?>
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Old Password</label>
                     <input type="password" name='oldpwd' class="form-control" >

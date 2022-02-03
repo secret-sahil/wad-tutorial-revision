@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($count>0) {
         $_SESSION['email']=$data[0]['email'];
         $_SESSION['username']=$data[0]['name'];
+        $_SESSION['id']=$data[0]['id'];
         header('location:viewcform.php');
     }
     else {

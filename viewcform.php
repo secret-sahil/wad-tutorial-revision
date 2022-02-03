@@ -35,7 +35,10 @@ include 'include/header.php' ?>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Message</th>
-                    <th>Action</th>
+                    <?php if ($_SESSION['email']=='admin@mrsahil.in') { ?>
+                        <th>Action</th>  
+                    <?php } ?>
+                    
                 </tr>
                 <?php 
                 require_once 'include/db.php';
@@ -47,8 +50,10 @@ include 'include/header.php' ?>
                         <td><?php echo $data['name']; ?></td>
                         <td><?php echo $data['email']; ?></td>
                         <td><?php echo $data['message']; ?></td>
-                        <td><button onclick=edit(<?php echo $data['id']; ?>) class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                        <button onclick=del(<?php echo $data['id']; ?>) class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                        <?php if ($_SESSION['email']=='admin@mrsahil.in') { ?>
+                            <td><button onclick=edit(<?php echo $data['id']; ?>) class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                            <button onclick=del(<?php echo $data['id']; ?>) class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                        <?php } ?>
                     </tr>
                 <?php $sno=$sno+1;} ?>
             </table>
@@ -58,11 +63,14 @@ include 'include/header.php' ?>
     <?php include 'include/footer.php' ?> 
 </body>
 </html>
-<?php 
-if (isset($_GET['delete'])) {
-    require_once 'include/db.php';
-    $query=$db->prepare('DELETE from cform where id=?');
-    $query->execute(array($_GET['delete']));
-    header('location:viewcform.php');
+<?php
+if ($_SESSION['email']=='admin@mrsahil.in') {
+    if (isset($_GET['delete'])) {
+        require_once 'include/db.php';
+        $query=$db->prepare('DELETE from cform where id=?');
+        $query->execute(array($_GET['delete']));
+        header('location:viewcform.php');
+    }
 }
+
 ?>
