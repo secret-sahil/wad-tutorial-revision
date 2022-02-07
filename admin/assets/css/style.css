@@ -1,0 +1,83 @@
+:root{
+    --theme: #212529;
+}
+a{
+    text-decoration: none;
+}
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 9px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+    background: #ffffffa4;
+    border-radius: 50px;
+}
+.error{
+    color: red;
+}
+.card{
+    margin-top: 10px;
+    margin-left: 20%;
+    margin-bottom: 10px;
+    margin-right: 20%;
+    background-color: black;
+    color: white;
+}
+
+body{
+    background-color: var(--theme);
+    color: white;
+}
+
+.footer{
+    color: var(--theme);
+    background-color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.slider{
+    padding: 10px 10px 10px 10px;
+}
+
+.slider img{
+    border-radius: 30% 0px 30% 0px;
+}
+.slider h5, .slider p{
+    color: white;
+}
+.myform{
+    padding: 10px 30% 10px 30%;
+}
+.formhead{
+    font-size: 25px;
+}
+
+.btn-outline-success{
+    margin-left: 3px;
+}
+table th, table td{
+    color: white;
+    text-align: center;
+}
+.cftable p{
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.cftable{
+    padding: 10px 10% 10px 10%;
+    text-align: center;
+}
+.cftable span{
+    font-size: 30px;
+    color: red;
+    text-align: center;
+}
+
+.cftable .btn-danger{
+    margin-left: 3px;
+}
