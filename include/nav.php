@@ -28,7 +28,7 @@
                             </li>
                         <?php }?>
                         <?php 
-                        if (isset($_SESSION['username']) and $_SESSION['email']!='admin@mrsahil.in') {?>
+                        if (isset($_SESSION['username'])) {?>
                             <li class="nav-item">
                                 <a class="nav-link active" href="edituser.php">Edit Profile</a>
                             </li>

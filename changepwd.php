@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pwd= $_POST['pwd'];
     $cpwd= $_POST['cpwd'];
     require_once 'include/db.php';
-    $query= $db->prepare('SELECT * from users where password=? and email=?');
+    $query= $db->prepare('SELECT * from users where password=? and id=?');
     $query->execute(array(
         md5($oldpwd),
-        $_SESSION['email']
+        $_SESSION['id']
     ));
     $data=$query->fetchall();
     $count=sizeof($data);
@@ -28,11 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     else {
         require_once 'include/db.php';
-        $query= $db->prepare('UPDATE users SET password=? where password=? and email=?');
+        $query= $db->prepare('UPDATE users SET password=? where password=? and id=?');
         $query->execute(array(
             md5($pwd),
             md5($oldpwd),
-            $_SESSION['email']
+            $_SESSION['id']
         ));
         $msg->append('Password Changed Sucessfully');
     }
@@ -78,4 +78,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <?php  include "include/footer.php"; ?>
 	</body>
-</html>
+</html>w

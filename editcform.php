@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['email']!='admin@mrsahil.in') {
+if (isset($_SESSION['name'])) {
     header('location:viewcform.php');
 }
 include "./include/header.php"; 

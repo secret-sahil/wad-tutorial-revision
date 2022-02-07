@@ -3,9 +3,6 @@ session_start();
 if (empty($_SESSION['username'])) {
     header('location:signin.php');
 }
-elseif ($_SESSION['email']=='admin@mrsahil.in') {
-    header('location:viewcform.php');
-}
 $msg= new ArrayObject(array());
 require_once 'include/db.php';
 $query=$db->prepare('SELECT * from users where id=?');
