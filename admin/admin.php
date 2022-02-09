@@ -8,12 +8,12 @@ include 'include/header.php' ?>
 <script>
     function del(id) {
         if (confirm('Do you really want to delete?')) {
-            window.location.href='users.php?delete='+id;
+            window.location.href='admin.php?delete='+id;
         }
         
     }
     function edit(id) {
-        window.location.href='edit_users.php?edit='+id;
+        window.location.href='edit_admin.php?edit='+id;
     }
 </script>
     <!-- nav bar start -->
@@ -31,41 +31,28 @@ include 'include/header.php' ?>
             <table class="table">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>DOB</th>
-                    <th>Gender</th>
-                    <th>Action</th> 
-                    
+                    <th>Username</th>
+                    <th>Action</th>
                 </tr>
                 <?php 
                 require_once 'include/db.php';
                 $sno=1;
-                $query= $db->query('SELECT * FROM users');                
+                $query= $db->query('SELECT * FROM admin');                
                 while ($data=$query->fetch()) { ?>
                     <tr>
                         <td><?php echo $sno; ?></td>
-                        <td><?php echo $data['name']; ?></td>
-                        <td><?php echo $data['email']; ?></td>
-                        <td><?php echo $data['dob']; ?></td>
-                        <td>
-                            <?php 
-                            if ($data['gender']==1) {
-                                echo 'Male';
-                            }
-                            elseif ($data['gender']==2) {
-                                echo 'Female';
-                            }
-                            else{
-                                echo 'Other';
-                            }
-                            ?>
-                        </td>
+                        <td><?php echo $data['username']; ?></td>
                         <td><button onclick=edit(<?php echo $data['id']; ?>) class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                        <button onclick=del(<?php echo $data['id']; ?>) class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                        <?php if (($data['id']!=1) and $data['id']!= $_SESSION['id']){ ?>
+                            <button onclick=del(<?php echo $data['id']; ?>) class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                        <?php }?>
+                        
                     </tr>
                 <?php $sno=$sno+1;} ?>
             </table>
+            <?php if (($_SESSION['id']==1)){ ?>
+            <a href='add_admin.php'><button class='btn btn-primary'>Add Admin</button></a>
+            <?php } ?>
         </div>
     </div>
     <!-- footer start -->
@@ -75,8 +62,8 @@ include 'include/header.php' ?>
 <?php
     if (isset($_GET['delete'])) {
         require_once 'include/db.php';
-        $query=$db->prepare('DELETE from users where id=?');
+        $query=$db->prepare('DELETE from admin where id=?');
         $query->execute(array($_GET['delete']));
-        header('location:users.php');
+        header('location:admin.php');
     }
 ?>

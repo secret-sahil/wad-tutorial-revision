@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $count=sizeof($data);
     if ($count>0) {
         $_SESSION['admin']=$data[0]['username'];
+        $_SESSION['id']=$data[0]['id'];
         header('location:dashboard.php');
     }
     else {
@@ -28,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="main">
         <div class="myform">
             <form action="index.php" method="post">
-                <p>Login</p>
+                <p>Admin Login</p>
                 <?php 
                 if (isset($msg)) {
                     for ($i=0; $i < sizeof($msg); $i++) { ?>
@@ -47,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label class="input-group-text" for="inputGroupSelect01">Password</label>
                     <input type="password" name='pwd' class="form-control" >
                 </div>
-                <p class="mb-3">Not registred? <a href="signup.php">Register</a></p>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
