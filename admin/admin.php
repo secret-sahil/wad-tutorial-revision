@@ -32,7 +32,9 @@ include 'include/header.php' ?>
                 <tr>
                     <th>ID</th>
                     <th>Username</th>
+                    <?php if ($_SESSION['id']==1) {?>
                     <th>Action</th>
+                    <?php } ?>
                 </tr>
                 <?php 
                 require_once 'include/db.php';
@@ -42,10 +44,12 @@ include 'include/header.php' ?>
                     <tr>
                         <td><?php echo $sno; ?></td>
                         <td><?php echo $data['username']; ?></td>
+                        <?php if ($_SESSION['id']==1) {?>
                         <td><button onclick=edit(<?php echo $data['id']; ?>) class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                        <?php if (($data['id']!=1) and $data['id']!= $_SESSION['id']){ ?>
+                        <?php if (($data['id']!=1)){ ?>
                             <button onclick=del(<?php echo $data['id']; ?>) class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                         <?php }?>
+                        <?php } ?>
                         
                     </tr>
                 <?php $sno=$sno+1;} ?>

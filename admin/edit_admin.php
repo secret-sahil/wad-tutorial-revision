@@ -1,6 +1,6 @@
 <?php include 'include/header.php';
 session_start();
-if (empty($_SESSION['admin'])) {
+if ($_SESSION['id']!=1) {
     header('location:index.php');
 }
 ?>
