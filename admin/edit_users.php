@@ -6,28 +6,35 @@ if (empty($_SESSION['admin'])) {
 $msg= new ArrayObject(array());
 require_once 'include/db.php';
 $query=$db->prepare('SELECT * from users where id=?');
+$edit=0;
+if (isset($_POST['edit'])) {
+    $edit=$_POST['edit'];
+}
+else{
+    $edit=$_GET['edit'];
+}
 $query->execute(array(
-    $_GET['edit']
+    $edit
 ));
 $data=$query->fetch();
 
-if ($_SERVER['REQUEST_METHOD']==='GET') {
-    if (empty($_GET['name']) or empty($_GET['email']) or empty($_GET['dob']) or empty($_GET['gender']) or empty($_GET['pwd']) or empty($_GET['cpwd'])) {
+if ($_SERVER['REQUEST_METHOD']==='POST') {
+    if (empty($_POST['name']) or empty($_POST['email']) or empty($_POST['dob']) or empty($_POST['gender']) or empty($_POST['pwd']) or empty($_POST['cpwd'])) {
         $msg->append('All fields are required');
     }
-    elseif ($_GET['pwd']!=$_GET['cpwd']) {
+    elseif ($_POST['pwd']!=$_POST['cpwd']) {
         $msg->append('Password do not match');
     }
     else {
         require_once 'include/db.php';
         $query= $db->prepare('UPDATE users SET name=?, email=?, dob=?, Gender=?, password=? where id=?');
         $query->execute(array(
-            $_GET['name'],
-            $_GET['email'],
-            $_GET['dob'],
-            $_GET['gender'],
-            md5($_GET['pwd']),
-            $_GET['edit'],
+            $_POST['name'],
+            $_POST['email'],
+            $_POST['dob'],
+            $_POST['gender'],
+            md5($_POST['pwd']),
+            $_POST['edit'],
         ));
         $msg->append('User Updated');
         header('location:users.php?msg="User Updated Sucessfully"');
@@ -40,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET') {
     <div class="main">
         <div class="myform">
         <p>Edit Profile</p>
-            <form action="edit_users.php" method="GET">
+            <form action="edit_users.php" method="POST">
                 <input type="text" value="<?php echo $data['id'] ?>" hidden name='edit' class="form-control">
                 <?php
                             for ($i=0; $i < sizeof($msg); $i++) {
